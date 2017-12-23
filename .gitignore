@@ -1,0 +1,15 @@
+.idea
+.DS_Store
+tags
+
+
+node_modules
+.babel-cache
+dist
+
+*.env
+!sample.env
+
+.DS_Store
+tags
+.auth
