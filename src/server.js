@@ -20,6 +20,8 @@ app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
-const server = app.listen(process.env.SERVER_PORT, function () {
-    console.log( chalk.blue('Server started successfully on port: ' + server.address().port) );
+
+const server = app.listen(process.env.SERVER_PORT, process.env.SERVER_HOST, function () {
+    console.log( chalk.blue('Server started successfully on [' + process.env.SERVER_HOST + ' : ' + process.env.SERVER_PORT + ']') );
 });
+

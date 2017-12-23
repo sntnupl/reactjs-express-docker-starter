@@ -2,14 +2,12 @@
 .DS_Store
 tags
 
-
 node_modules
 .babel-cache
-dist
+# don't ignore dist because in build machine we wont build with dev dependencies
+#dist
 
 *.env
 !sample.env
 
-.DS_Store
-tags
 .auth
