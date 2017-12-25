@@ -1,0 +1,32 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "ENV_TYPE": false,
+    "ENV_MODE": false,
+    "WEATHER_API_KEY": false
+  },
+  "rules": {
+    "no-console": 0,
+    "react/prop-types": [2, { "ignore": ["children"] }]
+  }
+}

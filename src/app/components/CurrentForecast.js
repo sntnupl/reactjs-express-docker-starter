@@ -52,6 +52,7 @@ class CurrentForecast extends React.Component {
         super(props);
     }
 
+    refCity = null;
     state = {
         error: {
             msg: undefined
@@ -62,7 +63,7 @@ class CurrentForecast extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        if (!this.refs.locationText.value) return;
+        if (!this.refCity.value) return;
 
         this.setState(() => {
             return {
@@ -72,7 +73,7 @@ class CurrentForecast extends React.Component {
             };
         });
 
-        const location = this.refs.locationText.value;
+        const location = this.refCity.value;
         ForecastCity(location.trim()).then((resp) => {
             //console.log(`Forecast for ${location.trim()}: ${JSON.stringify(resp)}`);
             const {name, country} = resp.data.city;
@@ -108,7 +109,7 @@ class CurrentForecast extends React.Component {
                     <form onSubmit={this.onSubmit}>
                         <input
                             type="text"
-                            ref="locationText"
+                            ref={(el) => {this.refCity = el}}
                             placeholder="city name (, country name)"/>
                         {!isFetchingData
                             ? <button type="submit">Fetch Weather Forecast</button>

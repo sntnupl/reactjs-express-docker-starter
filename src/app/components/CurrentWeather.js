@@ -41,6 +41,7 @@ class CurrentWeather extends React.Component {
     constructor(props) {
         super(props);
     }
+    refLocation = null;
     state = {
         error: {
             msg: undefined
@@ -57,7 +58,7 @@ class CurrentWeather extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        if (!this.refs.locationText.value) return;
+        if (!this.refLocationvalue) return;
 
         this.setState(() => {
             return {
@@ -66,7 +67,7 @@ class CurrentWeather extends React.Component {
             };
         });
 
-        const location = this.refs.locationText.value;
+        const location = this.refLocation.value;
         weatherCity(location.trim()).then(resp => {
             const {main, weather, name} = resp.data;
             this.setState(() => {
@@ -82,7 +83,7 @@ class CurrentWeather extends React.Component {
                 };
             });
 
-            this.refs.locationText.value = '';
+            this.refLocation.value = '';
             this.props.onData(resp);
         }).catch(err => {
             console.error('CurrentData error: ', JSON.stringify(err));
@@ -110,7 +111,7 @@ class CurrentWeather extends React.Component {
                     <form onSubmit={this.onSubmit}>
                         <input
                             type="text"
-                            ref="locationText"
+                            ref={(el) => {this.refLocation = el;}}
                             placeholder="city name (, country name)"/>
                         {!isFetchingData
                             ? <button type="submit">Fetch Weather Data</button>
@@ -127,6 +128,7 @@ class CurrentWeather extends React.Component {
 
 CurrentWeather.propTypes = {
     onData: PropTypes.func,
+    children: PropTypes.node.isRequired
 };
 
 export default CurrentWeather;

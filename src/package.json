@@ -4,6 +4,7 @@
   "description": "a starter reactapp hosted via express, deployed as a docker container ",
   "main": "index.js",
   "scripts": {
+    "lint:watch": "esw app --watch",
     "build:dev": "npm run clean && webpack --env.dev --watch",
     "build:prod": "npm run clean && webpack --env.prod -p",
     "serve": "nodemon server.js",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.1.1",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -35,6 +37,10 @@
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-watch": "^3.1.3",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
