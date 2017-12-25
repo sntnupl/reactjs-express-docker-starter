@@ -9,6 +9,9 @@ const Header = () => (
         <NavLink
             to="/forecast"
             exact={true}>Forecast</NavLink>
+        <NavLink
+            to="/about"
+            exact={true}>About</NavLink>
     </div>
 );
 

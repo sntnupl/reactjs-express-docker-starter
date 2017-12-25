@@ -1,7 +1,10 @@
 import React from 'react';
+import CurrentForecast from './CurrentForecast'
 
 const ForecastPage = () => (
-    <div>Hello, from Forecast Page!</div>
+    <div>
+        <CurrentForecast/>
+    </div>
 );
 
 export default ForecastPage;

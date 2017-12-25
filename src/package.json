@@ -4,7 +4,7 @@
   "description": "a starter reactapp hosted via express, deployed as a docker container ",
   "main": "index.js",
   "scripts": {
-    "build:dev": "npm run clean && webpack --env.dev",
+    "build:dev": "npm run clean && webpack --env.dev --watch",
     "build:prod": "npm run clean && webpack --env.prod -p",
     "serve": "nodemon server.js",
     "serve:hmr": "webpack-dev-server --config-name=client-hmr --env=dev",
@@ -20,6 +20,7 @@
     "font-awesome": "^4.7.0",
     "node-env-file": "^0.1.8",
     "nodemon": "^1.14.1",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"

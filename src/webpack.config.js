@@ -105,20 +105,17 @@ const webpackConfigs = (env) => {
             new HtmlWebpackPlugin({
                 template: 'app/index.template.html',
                 filename: '../index.html' // relative to output directory
-            })/*,
+            }),
             new webpack.ProvidePlugin({
                 $: 'jquery',
                 jQuery: 'jquery',
                 'window.jQuery': 'jquery',
-                Popper: ['popper.js', 'default']
             }),
             new webpack.DefinePlugin({
-                ENV: JSON.stringify("client-spa"),
-                "process.env": {
-                    NODE_ENV: JSON.stringify(isDevBuild ? "development" : "production"),
-                    API_SERVER_URL: JSON.stringify(process.env.API_SERVER_URL)
-                }
-            })*/
+                ENV_TYPE: JSON.stringify("client-spa"),
+                ENV_MODE: JSON.stringify(isDevBuild ? "development" : "production"),
+                WEATHER_API_KEY: JSON.stringify(process.env.WEATHER_API_KEY)
+            })
         ],
         devtool: modeSourceMap
 
