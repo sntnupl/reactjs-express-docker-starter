@@ -18,7 +18,43 @@ class CurrentLocWeather extends React.Component {
         weatherData: undefined,
     };
 
-    onGetCurrentPostion = (position) => {
+    handleGetCurrentPositionError = (err) => {
+        this.setState(() => (
+            {
+                error: {msg: "Location Access Blocked"}
+            }
+        ));
+        (err && console.warn(`ERROR(${err.code}): ${err.message}`));
+    };
+
+    handleLocationWeatherError = (err) => {
+        //console.warn (`failed to fetch weather for current location: {${latitude}, ${longitude}, error: ${JSON.stringify(err)}`);
+        const {lat, long} = this.state.loc;
+        this.setState(() => (
+            {
+                error: {msg: `failed to fetch weather data for current location: {${lat}, ${long}}`}
+            }
+        ));
+    };
+
+    handleLocationWeatherData = (weatherData) => {
+        //console.log(`Weather data for (${latitude}, ${longitude}) : ${JSON.stringify(response)}`);
+        const {name, main, weather, sys} = weatherData.data;
+        this.setState(() => (
+            {
+                weatherData: {
+                    name,
+                    country: sys.country,
+                    desc: weather[0].description,
+                    curr: main.temp,
+                    min: main.temp_min,
+                    max: main.temp_max,
+                },
+            }
+        ));
+    };
+
+    onGetCurrentPosition = (position) => {
         const {latitude, longitude} = position.coords;
         this.setState(() => (
             {
@@ -29,44 +65,14 @@ class CurrentLocWeather extends React.Component {
             }
         ));
 
-        weatherLocation(Math.round(latitude), Math.round(longitude)).then(response => {
-            //console.log(`Weather data for (${latitude}, ${longitude}) : ${JSON.stringify(response)}`);
-            const {name, main, weather, sys} = response.data;
-            this.setState(() => (
-                {
-                    weatherData: {
-                        name,
-                        country: sys.country,
-                        desc: weather[0].description,
-                        curr: main.temp,
-                        min: main.temp_min,
-                        max: main.temp_max,
-                    },
-                }
-            ));
-
-        }).catch(err => {
-            console.warn (`failed to fetch weather for current location: {${latitude}, ${longitude}, error: ${JSON.stringify(err)}`);
-            this.setState(() => (
-                {
-                    error: {msg: `failed to fetch weather data for current location: {${latitude}, ${longitude}`}
-                }
-            ));
-        });
-    };
-
-    handleGetCurrentPositionError = (err) => {
-        this.setState(() => (
-            {
-                error: {msg: "Location Access Blocked"}
-            }
-        ));
-        (err && console.warn(`ERROR(${err.code}): ${err.message}`));
+        weatherLocation(Math.round(latitude), Math.round(longitude))
+            .then(response => this.handleLocationWeatherData(response))
+            .catch(err => this.handleLocationWeatherError(err));
     };
 
     componentDidMount = () => {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(this.onGetCurrentPostion, this.handleGetCurrentPositionError);
+            navigator.geolocation.getCurrentPosition(this.onGetCurrentPosition, this.handleGetCurrentPositionError);
         }
         else {
             this.handleGetCurrentPositionError()

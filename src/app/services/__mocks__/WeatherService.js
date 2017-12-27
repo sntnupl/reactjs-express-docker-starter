@@ -38,6 +38,27 @@ const dataForecast = {
     }
 };
 
+const dataCurrentLocationWeather = {
+    data: {
+        name: 'kolkata',
+        main: {
+            temp: 15,
+            temp_min: 12,
+            temp_max: 25,
+        },
+        weather: [{description: 'mist'}],
+        sys: {country: 'IN'},
+    },
+};
+
+export const weatherLocation = (lat, long) => {
+    console.log('>>> returning mocked promise..');
+    return new Promise((resolve, reject) => {
+        process.nextTick(() => {
+            long === -1 ? reject({msg: 'invalid location'}) : resolve(dataCurrentLocationWeather);
+        });
+    });
+};
 
 export const ForecastCity = (city = '__empty__') => {
     console.log('>>> returning mocked promise..');

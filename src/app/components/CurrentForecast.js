@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {ForecastCity} from '../services/WeatherService';
 
 const ForecastSummary = ({data, error}) => {
-    if (error.msg) {
+    if (error && error.msg) {
         return (
             <p>{error.msg}</p>
         );
@@ -13,7 +13,7 @@ const ForecastSummary = ({data, error}) => {
     const forecastItems = data.list.map((item) => {
         return (
             <div className="forecast-card" key={item.dt.toString()}>
-                <ul className="forecast-card-date">
+                <ul>
                     <li>Date: {item.dt_txt}</li>
                     <li>Weather: {item.weather[0].description}</li>
                     <li>Temperature: {item.main.temp}</li>
@@ -44,6 +44,7 @@ ForecastSummary.propTypes = {
     }),
 };
 
+/*
 export const getForecastFirstData = (loc) => {
     return ForecastCity(loc).then((resp) => {
         return {
@@ -58,6 +59,7 @@ export const getForecastFirstData = (loc) => {
         return err.msg;
     });
 };
+*/
 
 
 class CurrentForecast extends React.Component {
@@ -76,6 +78,33 @@ class CurrentForecast extends React.Component {
         forecastData: undefined,
     };
 
+    handleForecastData = (forecast) => {
+        //console.log(`Forecast for ${location.trim()}: ${JSON.stringify(resp)}`);
+        const {name, country} = forecast.data.city;
+        this.setState(() => (
+            {
+                isFetchingData: false,
+                forecastData: {
+                    name,
+                    country,
+                    list: forecast.data.list,
+                }
+            }
+        ));
+    };
+
+    handleForecastError = (err) => {
+        //console.warn(`error: ${JSON.stringify(err)}`);
+        this.setState(() => (
+            {
+                isFetchingData: false,
+                error: {
+                    msg: 'failed to fetch forecast'
+                }
+            }
+        ));
+    };
+
     onSubmit = (e) => {
         e.preventDefault();
         if (!this.refCity.value) return;
@@ -89,30 +118,9 @@ class CurrentForecast extends React.Component {
         });
 
         const location = this.refCity.value;
-        ForecastCity(location.trim()).then((resp) => {
-            //console.log(`Forecast for ${location.trim()}: ${JSON.stringify(resp)}`);
-            const {name, country} = resp.data.city;
-            this.setState(() => (
-                {
-                    isFetchingData: false,
-                    forecastData: {
-                        name,
-                        country,
-                        list: resp.data.list,
-                    }
-                }
-            ));
-        }).catch((err) => {
-            console.error(`error: ${JSON.stringify(err)}`);
-            this.setState(() => (
-                {
-                    isFetchingData: false,
-                    error: {
-                        msg: 'failed to fetch forecast'
-                    }
-                }
-            ));
-        });
+        ForecastCity(location.trim())
+            .then(resp => this.handleForecastData(resp))
+            .catch(err => this.handleForecastError(err));
     };
 
     render = () => {
