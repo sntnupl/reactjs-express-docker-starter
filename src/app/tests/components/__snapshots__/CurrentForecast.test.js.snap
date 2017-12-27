@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CurrentForecast correctly 1`] = `
+<div
+  className="forecast"
+>
+  <div
+    className="forecast-form"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        placeholder="city name (, country name)"
+        type="text"
+      />
+      <button
+        type="submit"
+      >
+        Fetch Weather Forecast
+      </button>
+    </form>
+  </div>
+  <ForecastSummary
+    error={
+      Object {
+        "msg": undefined,
+      }
+    }
+  />
+</div>
+`;

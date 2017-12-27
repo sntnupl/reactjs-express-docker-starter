@@ -44,6 +44,21 @@ ForecastSummary.propTypes = {
     }),
 };
 
+export const getForecastFirstData = (loc) => {
+    return ForecastCity(loc).then((resp) => {
+        return {
+            cityName: resp.data.city.name,
+            data: {
+                temp: resp.data.list[0].main.temp,
+                min: resp.data.list[0].main.temp_min,
+                max: resp.data.list[0].main.temp_max,
+            }
+        };
+    }).catch((err) => {
+        return err.msg;
+    });
+};
+
 
 class CurrentForecast extends React.Component {
     static Summary = ForecastSummary;

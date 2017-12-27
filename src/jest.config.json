@@ -1,0 +1,9 @@
+{
+  "globals": {
+    "WEATHER_API_KEY": "1234"
+  },
+  "setupFiles": [
+    "raf/polyfill",
+    "<rootDir>/app/tests/setupTests.js"
+  ]
+}
