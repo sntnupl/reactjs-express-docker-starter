@@ -94,7 +94,7 @@ class CurrentForecast extends React.Component {
     };
 
     handleForecastError = (err) => {
-        //console.warn(`error: ${JSON.stringify(err)}`);
+        console.warn(`error: ${JSON.stringify(err)}`);
         this.setState(() => (
             {
                 isFetchingData: false,

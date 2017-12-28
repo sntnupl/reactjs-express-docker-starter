@@ -28,8 +28,8 @@ class CurrentLocWeather extends React.Component {
     };
 
     handleLocationWeatherError = (err) => {
-        //console.warn (`failed to fetch weather for current location: {${latitude}, ${longitude}, error: ${JSON.stringify(err)}`);
         const {lat, long} = this.state.loc;
+        console.warn (`failed to fetch weather for current location: {${lat}, ${long}, error: ${JSON.stringify(err)}`);
         this.setState(() => (
             {
                 error: {msg: `failed to fetch weather data for current location: {${lat}, ${long}}`}
@@ -56,6 +56,7 @@ class CurrentLocWeather extends React.Component {
 
     onGetCurrentPosition = (position) => {
         const {latitude, longitude} = position.coords;
+
         this.setState(() => (
             {
                 loc: {
