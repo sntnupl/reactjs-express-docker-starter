@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="current-weather"
+>
+  <div
+    className="current-weather-form"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        placeholder="city name (, country name)"
+        type="text"
+      />
+      <button
+        type="submit"
+      >
+        Fetch Weather Data
+      </button>
+      <span />
+    </form>
+  </div>
+  <WeatherSummary
+    data={
+      Object {
+        "curr": undefined,
+        "desc": undefined,
+        "max": undefined,
+        "min": undefined,
+        "name": undefined,
+      }
+    }
+    error={
+      Object {
+        "msg": undefined,
+      }
+    }
+    key=".0"
+  />
+</div>
+`;

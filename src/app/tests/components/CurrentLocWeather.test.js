@@ -63,17 +63,3 @@ test('state should be updated correctly on error while fetching weather data', (
     wrapper.instance().handleLocationWeatherError({});
     expect(wrapper.state().error.msg).toBeTruthy();
 });
-
-test.only('component render when location data is available and weather info is available for the location', async() => {
-    global.navigator.geolocation = {
-        getCurrentPosition: jest.fn((succ, fail) => {
-            succ({
-                coords: {
-                    latitude: 20,
-                    longitude: 40,
-                }
-            });
-        }),
-    };
-    const wrapper = shallow(<CurrentLocWeather/>);
-});

@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import {weatherCity} from '../services/WeatherService';
 
 const WeatherSummary = ({data, error}) => {
+    if (!data) return null;
+    if (error && error.msg) return null;
+
     const {name, desc, curr, min, max} = data;
     if (!name) return null;
-    if (error.msg) return null;
+
     return (
         <div className="weather-data-card">
             <p>{name}</p>
@@ -32,6 +35,9 @@ WeatherSummary.propTypes = {
     }),
 };
 
+
+
+
 class CurrentWeather extends React.Component {
     static Summary = WeatherSummary;
     static defaultProps = {
@@ -56,9 +62,37 @@ class CurrentWeather extends React.Component {
         },
     };
 
+    handleWeatherData = (resp) => {
+        const {main, weather, name} = resp.data;
+        this.setState(() => {
+            return {
+                isFetchingData: false,
+                weatherData: {
+                    name,
+                    desc: weather[0].description,
+                    curr: main.temp,
+                    min: main.temp_min,
+                    max: main.temp_max
+                },
+            };
+        });
+
+        this.props.onData(resp);
+    };
+
+    onWeatherFetchError = (err) => {
+        console.error('CurrentData error: ', JSON.stringify(err));
+        this.setState(() => {
+            return {
+                error: {msg: 'api call failed'},
+                isFetchingData: false
+            };
+        });
+    };
+
     onSubmit = (e) => {
         e.preventDefault();
-        if (!this.refLocationvalue) return;
+        if (!this.refLocation.value) return;
 
         this.setState(() => {
             return {
@@ -68,32 +102,10 @@ class CurrentWeather extends React.Component {
         });
 
         const location = this.refLocation.value;
-        weatherCity(location.trim()).then(resp => {
-            const {main, weather, name} = resp.data;
-            this.setState(() => {
-                return {
-                    isFetchingData: false,
-                    weatherData: {
-                        name,
-                        desc: weather[0].description,
-                        curr: main.temp,
-                        min: main.temp_min,
-                        max: main.temp_max
-                    },
-                };
-            });
-
-            this.refLocation.value = '';
-            this.props.onData(resp);
-        }).catch(err => {
-            console.error('CurrentData error: ', JSON.stringify(err));
-            this.setState(() => {
-                return {
-                    error: {msg: 'api call failed'},
-                    isFetchingData: false
-                };
-            });
-        });
+        weatherCity(location.trim())
+            .then(resp => this.handleWeatherData(resp))
+            .catch(err => this.onWeatherFetchError(err));
+        this.refLocation.value = '';
     };
 
     render = () => {
