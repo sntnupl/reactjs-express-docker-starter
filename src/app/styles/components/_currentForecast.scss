@@ -1,0 +1,128 @@
+.forecast {
+  //border: 2px solid #31384C;
+  max-width: 90%;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.forecast-form-primary {
+  max-width: 400px;
+  margin: 0 auto;
+  flex: 0 1 100%;
+}
+
+.forecast-form-secondary {
+  //max-width: 200px;
+  margin: 0 auto;
+  flex: 1 1 60%;
+}
+
+.forecast-form-secondary form {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecast input {
+  width: 50%;
+  display: inline-block;
+  margin: 10px;
+  border: hidden;
+  border-bottom: 2px solid #cfcacc;
+  text-align: center;
+  color: $theme-input-text-color;
+  line-height: 30px;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.forecast input:focus {
+  outline: none;
+  border: hidden;
+  border-bottom: 2px solid #a6a5a2;
+  box-shadow: 0 10px 10px -10px #777;
+}
+
+
+.forecast button {
+  line-height: 25px;
+  width: 100px;
+  //margin: 10px auto 10px auto;
+  margin-left: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid $theme-pink-dark;
+  background: $theme-pink-light;
+  color: $theme-white;
+}
+
+.forecast button:hover {
+  transform:scale(1.1,1.1);
+}
+
+
+.forecast-location {
+  flex: 0 1 40%;
+  //border: 1px solid red;
+}
+
+.forecast-location p {
+  padding: 10px 0px;
+  color: $theme-pink-dark;
+}
+
+/*.forecast-location ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.forecast-location ul li {
+  padding: 15px 100px;
+  background-color: #ddd;
+}*/
+
+
+/*
+.weather-forecasts {
+
+  width: 1000%;
+  margin: 0 auto;
+}
+*/
+
+.forecast-card-container {
+  width: 100%;
+  //border: 1px solid blue;
+  display: flex;
+  flex-wrap: wrap;
+  //background-color: #a1c8e9;
+}
+
+.forecast-card {
+  flex: 1 1 20%;
+}
+
+.forecast-card ul {
+  list-style: none;
+}
+
+.forecast-card ul li:first-child {
+  background-color: #a6c4e7;
+  color: $theme-white;
+  padding-left: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.forecast-card li {
+  color: $theme-input-text-color;
+}

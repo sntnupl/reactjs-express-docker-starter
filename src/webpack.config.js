@@ -7,7 +7,7 @@ const envFile = require('node-env-file');
 const chalk = require('chalk');
 
 const VENDOR_LIBS = [
-    'react', 'react-dom', 'react-router-dom'
+    'react', 'react-dom', 'react-router-dom', 'prop-types'
 ];
 
 const clientBundleOutputDir = './dist/assets';

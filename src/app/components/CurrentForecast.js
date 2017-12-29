@@ -14,21 +14,15 @@ const ForecastSummary = ({data, error}) => {
         return (
             <div className="forecast-card" key={item.dt.toString()}>
                 <ul>
-                    <li>Date: {item.dt_txt}</li>
-                    <li>Weather: {item.weather[0].description}</li>
-                    <li>Temperature: {item.main.temp}</li>
-                    <li>Min Temperature: {item.main.temp_min}</li>
-                    <li>Temperature: {item.main.temp_max}</li>
+                    <li>{item.dt_txt}</li>
+                    <li><i className="fa fa-check" aria-hidden="true"/> {item.weather[0].description}</li>
+                    <li><i className="fa fa-thermometer-empty" aria-hidden="true"/> {item.main.temp} deg celcius</li>
                 </ul>
             </div>
         );
     });
     return (
-        <div className="weather-forecasts">
-            <div>Location: {data.name}</div>
-            <div>Country: {data.country}</div>
-            {forecastItems}
-        </div>
+        <div className="forecast-card-container">{forecastItems}</div>
     );
 };
 
@@ -80,6 +74,7 @@ class CurrentForecast extends React.Component {
 
     handleForecastData = (forecast) => {
         //console.log(`Forecast for ${location.trim()}: ${JSON.stringify(resp)}`);
+        this.refCity.value = '';
         const {name, country} = forecast.data.city;
         this.setState(() => (
             {
@@ -128,18 +123,23 @@ class CurrentForecast extends React.Component {
 
         return (
             <div className="forecast">
-                <div className="forecast-form">
+                <div className={forecastData ? "forecast-form-secondary" : "forecast-form-primary"}>
                     <form onSubmit={this.onSubmit}>
                         <input
                             type="text"
                             ref={(el) => {this.refCity = el}}
                             placeholder="city name (, country name)"/>
                         {!isFetchingData
-                            ? <button type="submit">Fetch Weather Forecast</button>
+                            ? <button type="submit">Submit</button>
                             : <button type='submit' disabled>Fetching..</button>
                         }
                     </form>
                 </div>
+                {forecastData &&
+                    <div className="forecast-location">
+                        <p>Weather Forecast: <b>{forecastData.name}, {forecastData.country}</b></p>
+                    </div>
+                }
                 <ForecastSummary error={error} data={forecastData} />
             </div>
         );
