@@ -114,7 +114,8 @@ const webpackConfigs = (env) => {
             new webpack.DefinePlugin({
                 ENV_TYPE: JSON.stringify("client-spa"),
                 ENV_MODE: JSON.stringify(isDevBuild ? "development" : "production"),
-                WEATHER_API_KEY: JSON.stringify(process.env.WEATHER_API_KEY)
+                WEATHER_API_KEY: JSON.stringify(process.env.WEATHER_API_KEY),
+                API_URL_BASE: JSON.stringify(process.env.API_URL_BASE)
             })
         ],
         devtool: modeSourceMap

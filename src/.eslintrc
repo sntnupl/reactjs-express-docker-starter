@@ -23,7 +23,8 @@
   "globals": {
     "ENV_TYPE": false,
     "ENV_MODE": false,
-    "WEATHER_API_KEY": false
+    "WEATHER_API_KEY": false,
+    "API_URL_BASE": false
   },
   "rules": {
     "no-console": 0,

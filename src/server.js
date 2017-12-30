@@ -6,13 +6,14 @@ const envFile = require('node-env-file');
 const envFilePath = path.join(__dirname + '/settings/settings.env');
 const app = express();
 
-const PORT = process.env.PORT || process.env.SERVER_PORT;
-
 try {
     envFile(envFilePath);
 } catch (error) {
     console.log(chalk.red("Failed to read env file!: " + envFilePath));
 }
+
+const PORT = process.env.PORT || process.env.SERVER_PORT;
+console.log(process.env.API_URL_BASE);
 
 
 

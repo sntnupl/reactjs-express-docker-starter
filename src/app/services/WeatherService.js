@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const WEATHER_API_URL_BASE  = `http://api.openweathermap.org/data/2.5/weather?units=metric&APPID=${WEATHER_API_KEY}`;
-const FORECAST_API_URL_BASE  = `http://api.openweathermap.org/data/2.5/forecast?units=metric&APPID=${WEATHER_API_KEY}`;
+const WEATHER_API_URL_BASE  = `${API_URL_BASE}/weather?units=metric&APPID=${WEATHER_API_KEY}`;
+const FORECAST_API_URL_BASE  = `${API_URL_BASE}/forecast?units=metric&APPID=${WEATHER_API_KEY}`;
 
 export const weatherCity = (city) => {
     const url = `${WEATHER_API_URL_BASE}&q=${city}`;

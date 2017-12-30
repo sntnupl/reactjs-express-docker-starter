@@ -1,6 +1,7 @@
 {
   "globals": {
-    "WEATHER_API_KEY": "1234"
+    "WEATHER_API_KEY": "1234",
+    "API_URL_BASE": "http://www.example.com"
   },
   "setupFiles": [
     "raf/polyfill",
