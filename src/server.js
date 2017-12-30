@@ -6,6 +6,8 @@ const envFile = require('node-env-file');
 const envFilePath = path.join(__dirname + '/settings/settings.env');
 const app = express();
 
+const PORT = process.env.PORT || process.env.SERVER_PORT;
+
 try {
     envFile(envFilePath);
 } catch (error) {
@@ -21,7 +23,7 @@ app.get('/*', function (req, res) {
 });
 
 
-const server = app.listen(process.env.SERVER_PORT, process.env.SERVER_HOST, function () {
+const server = app.listen(PORT, process.env.SERVER_HOST, function () {
     console.log( chalk.blue('Server started successfully on [' + process.env.SERVER_HOST + ' : ' + process.env.SERVER_PORT + ']') );
 });
 
