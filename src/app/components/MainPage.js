@@ -4,7 +4,7 @@ import CurrentWeather from './CurrentWeather';
 
 const MainPage = () => {
     return (
-        <div>
+        <div className="mainpage-conatiner">
             <CurrentLocWeather/>
             <CurrentWeather>
                 <CurrentWeather.Summary />

@@ -13,7 +13,12 @@ exports[`should render AboutPage correctly 1`] = `
   <div
     className="social"
   >
-    Developer: Santanu Paul. Twitter: @sntnupl
+    Developer: Santanu Paul. Twitter: 
+    <a
+      href="http://www.twitter.com/sntnupl"
+    >
+      @sntnupl
+    </a>
   </div>
 </div>
 `;

@@ -1,0 +1,77 @@
+.current-weather-container {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.current-weather-form {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.current-weather-form input{
+  display: inline-block;
+  margin: 10px;
+  border: hidden;
+  border-bottom: 2px solid #cfcacc;
+  text-align: center;
+  color: $theme-input-text-color;
+  line-height: 30px;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.current-weather-form input:focus {
+  outline: none;
+  border: hidden;
+  border-bottom: 2px solid #a6a5a2;
+  box-shadow: 0 10px 10px -10px #777;
+}
+
+.current-weather-form button {
+  line-height: 25px;
+  //margin: 10px auto 10px auto;
+  margin-left: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid $theme-pink-dark;
+  background: $theme-pink-light;
+  color: $theme-white;
+}
+
+.current-weather-form button:hover {
+  transform:scale(1.1,1.1);
+}
+
+.weather-data-card {
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.weather-data-card p {
+  max-width: 400px;
+  padding: 10px 5px;
+  margin-right: 130px;
+  background-color: $theme-matt-blue;
+  color: $theme-white;
+  flex: 0 1 100%;
+  //color: $golden-yellow-wesbos;
+}
+
+.weather-data-card ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  flex: 0 1 100%;
+}

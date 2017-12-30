@@ -74,7 +74,7 @@ class CurrentForecast extends React.Component {
 
     handleForecastData = (forecast) => {
         //console.log(`Forecast for ${location.trim()}: ${JSON.stringify(resp)}`);
-        this.refCity.value = '';
+        if (this.refCity) this.refCity.value = '';
         const {name, country} = forecast.data.city;
         this.setState(() => (
             {

@@ -11,12 +11,15 @@ const WeatherSummary = ({data, error}) => {
 
     return (
         <div className="weather-data-card">
-            <p>{name}</p>
+            <p><b>{name}</b> Weather</p>
             <ul>
-                <li>Current Weather: {desc}</li>
-                <li>Current Temp: {curr} deg celcius</li>
-                <li>Min Temp: {min} deg celcius</li>
-                <li>Max Temp: {max} deg celcius</li>
+                <li><i className="fa fa-check" aria-hidden="true"/> {desc}</li>
+                <li>
+                    <i className="fa fa-thermometer-empty" aria-hidden="true"/> {curr}°C
+                    ( <i className="fa fa-long-arrow-down" aria-hidden="true"/> {min}°C,
+                    <i className="fa fa-long-arrow-up" aria-hidden="true"/> {max}°C )
+                </li>
+
             </ul>
         </div>
     );
@@ -118,11 +121,12 @@ class CurrentWeather extends React.Component {
         });
 
         return (
-            <div className="current-weather">
+            <div className="current-weather-container">
                 <div className="current-weather-form">
                     <form onSubmit={this.onSubmit}>
                         <input
                             type="text"
+                            size="60"
                             ref={(el) => {this.refLocation = el;}}
                             placeholder="city name (, country name)"/>
                         {!isFetchingData

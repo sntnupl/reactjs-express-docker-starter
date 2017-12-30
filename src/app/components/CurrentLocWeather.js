@@ -87,21 +87,23 @@ class CurrentLocWeather extends React.Component {
             console.log(this.state.error.msg);
             return null;
         }
-        if (!this.state.weatherData) return (
-            <div>fetching weather for your current location .. </div>
-        );
 
+        /*if (!this.state.weatherData) return (
+            <div className="current-loc-weather-container">fetching weather for your current location .. </div>
+        );*/
+        if (!this.state.weatherData) return null;
         const {name, country, desc, curr, min, max} = this.state.weatherData;
         return (
-            <div>
-                <p>Current Location: Latitude {lat}, Longitude {long}</p>
+            <div className="current-loc-weather-container">
                 <ul>
-                    <li>Name: {name}</li>
-                    <li>Country: {country}</li>
-                    <li>Weather Condition: {desc}</li>
-                    <li>Current Temp: {curr}</li>
-                    <li>Max Temp: {max}</li>
-                    <li>Min Temp: {min}</li>
+                    <li>Current Location: <b>{name}, {country}</b> </li>
+                    <li><i className="fa fa-map-marker" aria-hidden="true"/> Latitude {lat}, Longitude {long}</li>
+                    <li><i className="fa fa-check" aria-hidden="true"/> {desc}</li>
+                    <li>
+                        <i className="fa fa-thermometer-empty" aria-hidden="true"/> {curr}°C
+                        ( <i className="fa fa-long-arrow-down" aria-hidden="true"/> {min}°C,
+                        <i className="fa fa-long-arrow-up" aria-hidden="true"/> {max} °C )
+                    </li>
                 </ul>
             </div>
         );

@@ -1,0 +1,12 @@
+.current-loc-weather-container ul {
+  list-style: none;
+}
+
+.current-loc-weather-container ul li:first-child {
+  background-color: $theme-matt-blue;
+  color: $theme-light-yellow;
+  margin-right: 100px;
+  padding-left: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}

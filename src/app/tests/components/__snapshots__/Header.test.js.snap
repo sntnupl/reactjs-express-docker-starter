@@ -2,31 +2,39 @@
 
 exports[`should render Header correctly 1`] = `
 <div
-  className="usrhome-hdr"
+  className="app-hdr"
 >
-  <NavLink
-    activeClassName="active"
-    ariaCurrent="true"
-    exact={true}
-    to="/"
-  >
-    Home
-  </NavLink>
-  <NavLink
-    activeClassName="active"
-    ariaCurrent="true"
-    exact={true}
-    to="/forecast"
-  >
-    Forecast
-  </NavLink>
-  <NavLink
-    activeClassName="active"
-    ariaCurrent="true"
-    exact={true}
-    to="/about"
-  >
-    About
-  </NavLink>
+  <ul>
+    <li>
+      <NavLink
+        activeClassName="is-active"
+        ariaCurrent="true"
+        exact={true}
+        to="/"
+      >
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        activeClassName="is-active"
+        ariaCurrent="true"
+        exact={true}
+        to="/forecast"
+      >
+        Forecast
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        activeClassName="is-active"
+        ariaCurrent="true"
+        exact={true}
+        to="/about"
+      >
+        About
+      </NavLink>
+    </li>
+  </ul>
 </div>
 `;

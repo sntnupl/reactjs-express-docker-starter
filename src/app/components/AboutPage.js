@@ -13,7 +13,7 @@ const AboutPage = () => {
             </div>
             <div className="social">
                 Developer: Santanu Paul.
-                Twitter: @sntnupl
+                Twitter: <a href="http://www.twitter.com/sntnupl">@sntnupl</a>
             </div>
         </div>
     );

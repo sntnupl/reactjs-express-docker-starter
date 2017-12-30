@@ -13,7 +13,6 @@
 }
 
 .forecast-form-secondary {
-  //max-width: 200px;
   margin: 0 auto;
   flex: 1 1 60%;
 }
@@ -76,35 +75,10 @@
   color: $theme-pink-dark;
 }
 
-/*.forecast-location ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.forecast-location ul li {
-  padding: 15px 100px;
-  background-color: #ddd;
-}*/
-
-
-/*
-.weather-forecasts {
-
-  width: 1000%;
-  margin: 0 auto;
-}
-*/
-
 .forecast-card-container {
   width: 100%;
-  //border: 1px solid blue;
   display: flex;
   flex-wrap: wrap;
-  //background-color: #a1c8e9;
 }
 
 .forecast-card {
@@ -116,7 +90,7 @@
 }
 
 .forecast-card ul li:first-child {
-  background-color: #a6c4e7;
+  background-color: $theme-matt-blue;
   color: $theme-white;
   padding-left: 6px;
   padding-top: 3px;

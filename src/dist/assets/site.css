@@ -1610,26 +1610,6 @@ body {
 .forecast-location p {
   padding: 10px 0px;
   color: #E3766D; }
-/*.forecast-location ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.forecast-location ul li {
-  padding: 15px 100px;
-  background-color: #ddd;
-}*/
-/*
-.weather-forecasts {
-
-  width: 1000%;
-  margin: 0 auto;
-}
-*/
 .forecast-card-container {
   width: 100%;
   display: -webkit-box;
@@ -1651,3 +1631,119 @@ body {
   padding-bottom: 3px; }
 .forecast-card li {
   color: #918c8e; }
+.mainpage-conatiner {
+  max-width: 80%;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+.current-loc-weather-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 33%;
+          flex: 1 0 33%;
+  margin-right: 0; }
+.current-loc-weather-container ul {
+  list-style: none; }
+.current-loc-weather-container ul li:first-child {
+  background-color: #a6c4e7;
+  color: #FFF482;
+  margin-right: 100px;
+  padding-left: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px; }
+.current-weather-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+.current-weather-form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+.current-weather-form input {
+  display: inline-block;
+  margin: 10px;
+  border: hidden;
+  border-bottom: 2px solid #cfcacc;
+  text-align: center;
+  color: #918c8e;
+  line-height: 30px;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0; }
+.current-weather-form input:focus {
+  outline: none;
+  border: hidden;
+  border-bottom: 2px solid #a6a5a2;
+  box-shadow: 0 10px 10px -10px #777; }
+.current-weather-form button {
+  line-height: 25px;
+  margin-left: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid #E3766D;
+  background: #e39295;
+  color: #FEFEFE; }
+.current-weather-form button:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1); }
+.weather-data-card {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+.weather-data-card p {
+  max-width: 400px;
+  padding: 10px 5px;
+  margin-right: 130px;
+  background-color: #a6c4e7;
+  color: #FEFEFE;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%; }
+.weather-data-card ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%; }

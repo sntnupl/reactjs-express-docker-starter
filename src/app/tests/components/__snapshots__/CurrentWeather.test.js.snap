@@ -2,7 +2,7 @@
 
 exports[`should render correctly 1`] = `
 <div
-  className="current-weather"
+  className="current-weather-container"
 >
   <div
     className="current-weather-form"
@@ -12,6 +12,7 @@ exports[`should render correctly 1`] = `
     >
       <input
         placeholder="city name (, country name)"
+        size="60"
         type="text"
       />
       <button

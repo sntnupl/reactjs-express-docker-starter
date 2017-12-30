@@ -5,7 +5,7 @@ exports[`should render CurrentForecast correctly 1`] = `
   className="forecast"
 >
   <div
-    className="forecast-form"
+    className="forecast-form-primary"
   >
     <form
       onSubmit={[Function]}
@@ -17,7 +17,7 @@ exports[`should render CurrentForecast correctly 1`] = `
       <button
         type="submit"
       >
-        Fetch Weather Forecast
+        Submit
       </button>
     </form>
   </div>
