@@ -1,9 +1,5 @@
 # ReactJS Express Docker Starter  
 
-This repository, is more or less what I follow as my starting template for projects  
-+ to build Web Apps (and not Web APIs),  
-+ with the Client App a SPA made with ReactJS
-
 This is an opinionated starter/boilerplate project for a ReactJS Single Page Application.
 We are using:  
 + React V16, with `prop-types` for prop validation  
