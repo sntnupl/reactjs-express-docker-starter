@@ -14,6 +14,9 @@ Lastly, We are using
 + Webpack to bundle modules and  
 + NPM scripts to run the build processes.
 
+A running version of this app is deployed in Heroku: [https://lit-savannah-37543.herokuapp.com](https://lit-savannah-37543.herokuapp.com/).
+We are using free dyno(s) to run the app, so in case the url is unresponsive/takes too long to open, kindly be patient and/or try reloading the page. 🙏   
+
 
 ## Getting Started  
 
