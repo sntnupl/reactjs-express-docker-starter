@@ -9,7 +9,6 @@
     "build:dev": "npm run clean && webpack --env.dev --watch",
     "build:prod": "npm run clean && webpack --env.prod -p",
     "serve": "nodemon server.js",
-    "serve:hmr": "webpack-dev-server --config-name=client-hmr --env=dev",
     "clean": "rimraf dist"
   },
   "author": "Santanu Paul",
